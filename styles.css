@@ -6,10 +6,14 @@ body{
     background-color: gainsboro;
 }
 
+.game{
+    display: flex;
+}
+
 .grid{
     display: grid;
-    width: 960px;
-    height: 960px;
+    width: 75vw;
+    height: 75vw;
     grid-template-columns: repeat(16, 1fr);
     border: 1px solid black;
 }
