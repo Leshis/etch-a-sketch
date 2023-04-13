@@ -1,32 +1,32 @@
-*{
+* {
     box-sizing: border-box;
 }
 
-body{
+body {
     background-color: gainsboro;
 }
 
-h1{
+h1 {
     text-align: center;
 }
 
-button{
+button {
     border: none;
     border-radius: 2px;
     cursor: pointer;
     transition: 100ms;
 }
 
-button:hover{
+button:hover {
     transform: scale(115%);
     transition: 100ms;
 }
 
-.btn-highlight{
+.btn-highlight {
     background-color: #2f4f4f;
 }
 
-.game{
+.game {
     display: flex;
     gap: 1em;
     margin: auto;
@@ -34,7 +34,7 @@ button:hover{
     max-width: 1240px;
 }
 
-.controls{
+.controls {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -42,7 +42,26 @@ button:hover{
     gap: 1em;
 }
 
-.grid{
+.color-picker {
+    -webkit-appearance: none;
+    width: 80px;
+    height: 80px;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    box-shadow: none;
+}
+
+.color-picker::-webkit-color-swatch {
+    border-radius: 50%;
+}
+
+.color-picker::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+
+.grid {
     display: grid;
     width: 75vw;
     height: 75vw;
@@ -54,6 +73,6 @@ button:hover{
     
 } */
 
-.highlighted{
+.highlighted {
     background-color: darkslategray;
 }

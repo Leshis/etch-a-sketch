@@ -2,6 +2,7 @@ const grid = document.getElementById('grid');
 const gridSizeInput = document.getElementById('grid-size-input');
 const colourInput = document.getElementById('color-picker');
 const colourBtn = document.getElementById('color-button');
+const eraserBtn = document.getElementById('eraser-button');
 
 const defaultColour = 'darkslategray';
 
@@ -9,16 +10,33 @@ let highlightClass = document.getElementsByClassName('.highlighted');
 let gridSize = gridSizeInput.value;
 let colour = colourInput.value;
 let isColour = false;
+let isEraser = false;
 
-gridSizeInput.addEventListener('change', function(){
+gridSizeInput.addEventListener('change', function () {
     gridSize = gridSizeInput.value;
     createGrid(gridSize);
 })
 
-colourBtn.addEventListener('click', function(){
+colourBtn.addEventListener('click', function () {
     colourBtn.classList.toggle('btn-highlight');
     isColour = !isColour;
-    if(!isColour){
+    if (!isColour) {
+        colour = defaultColour;
+    }
+
+    if (isEraser) {
+        eraserBtn.classList.remove('btn-highlight');
+        isEraser = false;
+    }
+})
+
+eraserBtn.addEventListener('click', function () {
+    eraserBtn.classList.toggle('btn-highlight');
+    isEraser = !isEraser;
+
+    if (isColour) {
+        colourBtn.classList.remove('btn-highlight');
+        isColour = false;
         colour = defaultColour;
     }
 })
@@ -30,22 +48,24 @@ function createGrid(size) {
         let square = document.createElement('div');
         square.classList.add('square');
 
-        
         square.addEventListener('mouseenter', function (e) {
             if (isColour) {
-                e.target.style.backgroundColor = colourInput.value ? colourInput.value: 'darkslategray';
-            } else {
+                e.target.style.backgroundColor = colourInput.value ? colourInput.value : 'darkslategray';
+            }
+            else if (isEraser) {
+                e.target.style.backgroundColor = 'gainsboro';
+            }
+            else {
                 e.target.style.backgroundColor = defaultColour;
             }
         });
 
-        square.addEventListener('mouseleave', function(e){
-            e.target.style.backgroundColor = 'gainsboro';
-        })
+        // square.addEventListener('mouseleave', function(e){
+        //     e.target.style.backgroundColor = 'gainsboro';
+        // })
 
         grid.appendChild(square);
     }
 }
 
 createGrid(gridSize);
-console.log(colour);
