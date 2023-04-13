@@ -3,6 +3,7 @@ const gridSizeInput = document.getElementById('grid-size-input');
 const colourInput = document.getElementById('color-picker');
 const colourBtn = document.getElementById('color-button');
 const eraserBtn = document.getElementById('eraser-button');
+const clearBtn = document.getElementById('clear-button');
 
 const defaultColour = 'darkslategray';
 
@@ -11,11 +12,6 @@ let gridSize = gridSizeInput.value;
 let colour = colourInput.value;
 let isColour = false;
 let isEraser = false;
-
-gridSizeInput.addEventListener('change', function () {
-    gridSize = gridSizeInput.value;
-    createGrid(gridSize);
-})
 
 colourBtn.addEventListener('click', function () {
     colourBtn.classList.toggle('btn-highlight');
@@ -40,6 +36,16 @@ eraserBtn.addEventListener('click', function () {
         colour = defaultColour;
     }
 })
+
+clearBtn.addEventListener('click', function(){
+    createGrid(gridSize);
+})
+
+gridSizeInput.addEventListener('change', function () {
+    gridSize = gridSizeInput.value;
+    createGrid(gridSize);
+})
+
 
 function createGrid(size) {
     grid.textContent = '';
