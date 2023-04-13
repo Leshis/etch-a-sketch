@@ -9,29 +9,22 @@ gridSizeInput.addEventListener('change', function () {
 })
 
 function createGrid(size) {
-    grid.innerHTML = '';
+    grid.textContent = '';
     grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     for (let i = 0; i < size * size; i++) {
-        const square = document.createElement('div');
+        let square = document.createElement('div');
         square.classList.add('square');
 
         square.addEventListener('mouseenter', function (e) {
-            if(e.target.classList.contains("square")){
-                e.target.classList.toggle('highlighted');
-            }
+            e.target.classList.toggle('highlighted');
         });
 
         square.addEventListener('mouseleave', function (e) {
-            if(e.target.classList.contains("square")){
-                e.target.classList.toggle('highlighted');
-            }
+            e.target.classList.toggle('highlighted');
         });
 
         grid.appendChild(square);
     }
 }
-
-
-
 
 createGrid(gridSize);
