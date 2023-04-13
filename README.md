@@ -1,6 +1,8 @@
 # Etch-A-Sketch
 A digital version of the classic children's toy, Etch-A-Sketch, built with HTML, CSS, and JavaScript.
 
+Click [here](https://leshis.github.io/etch-a-sketch/) to try.
+
 ![Etch-a-sketch](https://user-images.githubusercontent.com/94430516/231735629-2ce5dd8b-cd55-4946-aa58-7b5a59f19465.png)
 
 
