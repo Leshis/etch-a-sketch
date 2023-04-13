@@ -5,9 +5,8 @@ const colourBtn = document.getElementById('color-button');
 const eraserBtn = document.getElementById('eraser-button');
 const clearBtn = document.getElementById('clear-button');
 
-const defaultColour = 'darkslategray';
+const defaultColour = '#121212';
 
-let highlightClass = document.getElementsByClassName('.highlighted');
 let gridSize = gridSizeInput.value;
 let colour = colourInput.value;
 let isColour = false;
@@ -39,13 +38,23 @@ eraserBtn.addEventListener('click', function () {
 
 clearBtn.addEventListener('click', function(){
     createGrid(gridSize);
+
+    if (isColour) {
+        colourBtn.classList.remove('btn-highlight');
+        isColour = false;
+        colour = defaultColour;
+    }
+
+    if (isEraser) {
+        eraserBtn.classList.remove('btn-highlight');
+        isEraser = false;
+    }
 })
 
 gridSizeInput.addEventListener('change', function () {
     gridSize = gridSizeInput.value;
     createGrid(gridSize);
 })
-
 
 function createGrid(size) {
     grid.textContent = '';
@@ -56,20 +65,15 @@ function createGrid(size) {
 
         square.addEventListener('mouseenter', function (e) {
             if (isColour) {
-                e.target.style.backgroundColor = colourInput.value ? colourInput.value : 'darkslategray';
+                e.target.style.backgroundColor = colourInput.value || defaultColour;
             }
             else if (isEraser) {
-                e.target.style.backgroundColor = 'gainsboro';
+                e.target.style.backgroundColor = 'whitesmoke';
             }
             else {
                 e.target.style.backgroundColor = defaultColour;
             }
         });
-
-        // square.addEventListener('mouseleave', function(e){
-        //     e.target.style.backgroundColor = 'gainsboro';
-        // })
-
         grid.appendChild(square);
     }
 }

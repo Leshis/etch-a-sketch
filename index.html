@@ -1,37 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-A-Sketch</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <h1>Etch-A-Sketch</h1>
-    <div class="game">
-        <div class="controls">
-            <input 
-                id="color-picker" 
-                class="color-picker"
-                type="color"
-                value="#2f4f4f">
-            <button id="color-button">Colour</button>
-            <button id="eraser-button">Eraser</button>
-            <button id="clear-button">Clear</button>
-            <input 
-                id="grid-size-input" 
-                type="range"
-                value="16"
-                min="0"
-                max="64"
-                oninput="this.nextElementSibling.value = this.value"
-            >
-            <output>16</output>
+    <header>
+        <h1>Etch-A-Sketch</h1>
+    </header>
+    <main>
+        <div class="game">
+            <aside class="controls">
+                <label for="color-picker">Color:</label>
+                <input id="color-picker" class="color-picker" type="color" value="#121212">
+                <button id="color-button">Color</button>
+                <button id="eraser-button">Eraser</button>
+                <button id="clear-button">Clear</button>
+                <label for="grid-size-input">Grid size:</label>
+                <input id="grid-size-input" class="grid-size-input" type="range" value="16" min="0" max="64"
+                    oninput="this.nextElementSibling.value = `${this.value} x ${this.value}`">
+                <output id="grid-size-output">16 x 16</output>
+            </aside>
+            <section id="grid" class="grid"></section>
         </div>
-        <div id="grid" class="grid"></div>
-    </div>
-    
+    </main>
+    <footer>
+        <p>&copy; Leon
+            <script>
+                document.write(new Date().getFullYear());
+            </script>
+        </p>
+    </footer>
     <script src="index.js" type="module"></script>
 </body>
+
 </html>

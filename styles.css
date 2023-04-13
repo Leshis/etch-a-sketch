@@ -4,34 +4,41 @@
 
 body {
     background-color: gainsboro;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 h1 {
     text-align: center;
+    font-size: 3.75rem;
 }
 
 button {
-    border: none;
-    border-radius: 2px;
+    font-size: 1.15rem;
+    background-color: inherit;
+    border: 1px solid #121212;
+    border-radius: 3px;
     cursor: pointer;
+    padding: 0.5em 1.5em;
+    min-width: 150px;
     transition: 100ms;
 }
 
 button:hover {
-    transform: scale(115%);
-    transition: 100ms;
+    transform: scale(1.1);
 }
 
 .btn-highlight {
-    background-color: #2f4f4f;
+    background-color: #121212;
+    color: whitesmoke;
 }
 
 .game {
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 1em;
-    margin: auto;
+    margin: 8em auto;
     padding: 0 1em;
-    max-width: 1240px;
 }
 
 .controls {
@@ -42,6 +49,12 @@ button:hover {
     gap: 1em;
 }
 
+label {
+    position: absolute;
+    left: -9999px;
+    visibility: hidden;
+}
+
 .color-picker {
     -webkit-appearance: none;
     width: 80px;
@@ -50,6 +63,7 @@ button:hover {
     outline: none;
     border-radius: 50%;
     box-shadow: none;
+    cursor: pointer;
 }
 
 .color-picker::-webkit-color-swatch {
@@ -60,15 +74,38 @@ button:hover {
     padding: 0;
 }
 
+.grid-size-input {
+    cursor: pointer;
+}
 
 .grid {
     display: grid;
-    width: 75vw;
-    height: 75vw;
+    background-color: whitesmoke;
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.5);
+    width: 500px;
+    height: 500px;
     grid-template-columns: repeat(16, 1fr);
-    border: 1px solid black;
 }
 
 .highlighted {
-    background-color: darkslategray;
+    background-color: #121212;
+}
+
+footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+@media screen and (max-width: 700px) {
+    .game {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .grid {
+        width: 400px;
+        height: 400px;
+    }
 }
