@@ -6,8 +6,40 @@ body{
     background-color: gainsboro;
 }
 
+h1{
+    text-align: center;
+}
+
+button{
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: 100ms;
+}
+
+button:hover{
+    transform: scale(115%);
+    transition: 100ms;
+}
+
+.btn-highlight{
+    background-color: #2f4f4f;
+}
+
 .game{
     display: flex;
+    gap: 1em;
+    margin: auto;
+    padding: 0 1em;
+    max-width: 1240px;
+}
+
+.controls{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
 }
 
 .grid{
@@ -18,6 +50,10 @@ body{
     border: 1px solid black;
 }
 
-.square{
-    border: 1px solid green;
+/* .square{
+    
+} */
+
+.highlighted{
+    background-color: darkslategray;
 }

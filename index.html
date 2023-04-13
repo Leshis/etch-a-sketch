@@ -12,13 +12,18 @@
     <div class="game">
         <div class="controls">
             <input 
-                id="gridSizeInput" 
+                id="color-picker" 
+                type="color"
+                value="#2f4f4f">
+            <button id="color-button">Colour</button>
+            <input 
+                id="grid-size-input" 
                 type="range"
                 value="16"
                 min="0"
                 max="64"
                 oninput="this.nextElementSibling.value = this.value"
-            ></input>
+            >
             <output>16</output>
         </div>
         <div id="grid" class="grid"></div>
